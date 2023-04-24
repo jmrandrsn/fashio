@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Background = styled.div`
-	background-image: url('../../about.jpeg');
+	background-image: url('../../about(edited).jpeg');
 	background-position: center;
 	background-size: cover;
 	min-height: 100vh;

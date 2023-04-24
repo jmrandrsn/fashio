@@ -22,12 +22,12 @@ const Navigation = () => {
 	return (
 		<NavigationContainer>
 			<NavLink to="/news">news</NavLink>
-			<NavLink href="/spring-summer-2023">spring/summer 2023</NavLink>
-			<NavLink href="/spring-summer-2023-lookbook">
-				spring/summer 2023 Lookbook
+			<NavLink to="/spring-summer-2023">spring/summer 2023</NavLink>
+			<NavLink to="/spring-summer-2023-lookbook">
+				spring/summer 2023 lookbook
 			</NavLink>
 			<NavLink to="/shop">shop</NavLink>
-			<NavLink href="/random">random</NavLink>
+			<NavLink to="/random">random</NavLink>
 			<NavLink to="/about">about</NavLink>
 			<NavLink to="/contact">contact</NavLink>
 			<NavLink href="/mailing-list">mailing list</NavLink>

@@ -8,6 +8,9 @@ import Home from './pages/Home';
 import News from './pages/News';
 import Shop from './pages/Shop';
 import Contact from './pages/Contact';
+import Catalog from './pages/Catalog';
+import LookBook from './pages/LookBook';
+import Random from './pages/Random';
 
 function App() {
 	return (
@@ -18,6 +21,9 @@ function App() {
 				<Route path="/news" element={<News />} />
 				<Route path="/shop" element={<Shop />} />
 				<Route path="/contact" element={<Contact />} />
+				<Route path="/random" element={<Random />} />
+				<Route path="/spring-summer-2023" element={<Catalog />} />
+				<Route path="/spring-summer-2023-lookbook" element={<LookBook />} />
 			</Routes>
 		</Router>
 	);
