@@ -21,16 +21,16 @@ const NavLink = styled(Link)`
 const Navigation = () => {
 	return (
 		<NavigationContainer>
-			<NavLink to="/news">News</NavLink>
-			<NavLink href="/spring-summer-2023">Spring/Summer 2023</NavLink>
+			<NavLink to="/news">news</NavLink>
+			<NavLink href="/spring-summer-2023">spring/summer 2023</NavLink>
 			<NavLink href="/spring-summer-2023-lookbook">
-				Spring/Summer 2023 Lookbook
+				spring/summer 2023 Lookbook
 			</NavLink>
-			<NavLink to="/shop">Shop</NavLink>
-			<NavLink href="/random">Random</NavLink>
-			<NavLink to="/about">About</NavLink>
-			<NavLink to="/contact">Contact</NavLink>
-			<NavLink href="/mailing-list">Mailing List</NavLink>
+			<NavLink to="/shop">shop</NavLink>
+			<NavLink href="/random">random</NavLink>
+			<NavLink to="/about">about</NavLink>
+			<NavLink to="/contact">contact</NavLink>
+			<NavLink href="/mailing-list">mailing list</NavLink>
 		</NavigationContainer>
 	);
 };

@@ -12,7 +12,7 @@ const Background = styled.div`
 
 const Construction = styled.h1`
 	background-color: #9d938c;
-	min-height: 100vh;
+	min-height: 50vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -21,6 +21,10 @@ const Construction = styled.h1`
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Alegreya', serif;
+	overflow: hidden;
+	margin: 0;
+    padding: 0;
+
   }
 `;
 
@@ -32,11 +36,9 @@ function Shop() {
 			<GlobalStyle />
 			<Background>
 				<Header centered />
-				<Construction>
-					<h1> Shop Page Under Construction Mother Fucker</h1>
-				</Construction>
+				<Construction>Shop Page Under Construction Mother Fucker</Construction>
+				<Footer />
 			</Background>
-			<Footer />
 		</>
 	);
 }

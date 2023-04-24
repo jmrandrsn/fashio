@@ -24,8 +24,8 @@ function Home() {
 			<Background>
 				<Header />
 				<Navigation />
-				<HomeFooter />
 			</Background>
+			<HomeFooter />
 		</>
 	);
 }

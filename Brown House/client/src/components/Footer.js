@@ -23,14 +23,14 @@ const FooterLink = styled.a`
 const HomeFooter = () => {
 	return (
 		<FooterContainer>
-			<FooterLink href="/">Home</FooterLink>
+			<FooterLink href="/">home</FooterLink>
 			<FooterLink href="/shop" extraSpacing>
-				Shop
+				shop
 			</FooterLink>
-			<FooterLink href="/terms">Terms</FooterLink>
-			<FooterLink href="/privacy">Privacy</FooterLink>
-			<FooterLink href="/faq">F.A.Q.</FooterLink>
-			<FooterLink href="/accessibility">Accessibility</FooterLink>
+			<FooterLink href="/terms">terms</FooterLink>
+			<FooterLink href="/privacy">privacy</FooterLink>
+			<FooterLink href="/faq">f.a.q.</FooterLink>
+			<FooterLink href="/accessibility">accessibility</FooterLink>
 		</FooterContainer>
 	);
 };
