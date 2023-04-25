@@ -28,8 +28,10 @@ const Navigation = () => {
 			</NavLink>
 			<NavLink to="/shop">shop</NavLink>
 			<NavLink to="/random">random</NavLink>
-			<NavLink to="/about">about</NavLink>
+
 			<NavLink to="/contact">contact</NavLink>
+
+			<NavLink to="/about">about</NavLink>
 			<NavLink href="/mailing-list">mailing list</NavLink>
 		</NavigationContainer>
 	);

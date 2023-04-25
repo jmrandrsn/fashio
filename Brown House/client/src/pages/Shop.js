@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BlackSweater from '../media/blacksweater.jpeg';
@@ -59,6 +60,10 @@ const ProductImage = styled.img`
 	border-radius: 5px;
 `;
 
+const ProductLink = styled(Link)`
+	text-decoration: none;
+`;
+
 const ProductName = styled.p`
 	margin: 10px 0;
 `;
@@ -76,22 +81,34 @@ function Shop() {
 				<MainContent>
 					<ProductsContainer>
 						<Product>
-							<ProductImage src={BlackSweater} />
+							<ProductLink to="/product-page">
+								<ProductImage src={BlackSweater} />
+							</ProductLink>
+
 							<ProductName>Black Sweater</ProductName>
 							<ProductPrice>$49.99</ProductPrice>
 						</Product>
 						<Product>
-							<ProductImage src={Hoodie} />
-							<ProductName>Black Sweater</ProductName>
+							<ProductLink to="/product-page">
+								<ProductImage src={Hoodie} />
+							</ProductLink>
+
+							<ProductName>Dope Hoodie</ProductName>
 							<ProductPrice>$60</ProductPrice>
 						</Product>
 						<Product>
-							<ProductImage src={Jacket} />
-							<ProductName>Black Sweater</ProductName>
+							<ProductLink to="/product-page">
+								<ProductImage src={Jacket} />
+							</ProductLink>
+
+							<ProductName>Letterman</ProductName>
 							<ProductPrice>$150</ProductPrice>
 						</Product>
 						<Product>
-							<ProductImage src={Lamp} />
+							<ProductLink to="/product-page">
+								<ProductImage src={Lamp} />
+							</ProductLink>
+
 							<ProductName>Only Lamp</ProductName>
 							<ProductPrice>$79.99</ProductPrice>
 						</Product>

@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Catalog from './pages/Catalog';
 import LookBook from './pages/LookBook';
 import Random from './pages/Random';
+import ProductPage from './pages/ProductPage';
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/shop" element={<Shop />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/random" element={<Random />} />
+				<Route path="product-page" element={<ProductPage />} />
 				<Route path="/spring-summer-2023" element={<Catalog />} />
 				<Route path="/spring-summer-2023-lookbook" element={<LookBook />} />
 			</Routes>
