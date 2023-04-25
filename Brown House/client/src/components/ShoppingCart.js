@@ -23,6 +23,8 @@ const CartCounter = styled.span`
 	justify-content: center;
 `;
 
+// Shopping Cart should be clicked and small popout with cart items should be available.
+//Seperate from the checkout page
 const ShoppingCart = ({ cartItems }) => {
 	return (
 		<CartIcon>

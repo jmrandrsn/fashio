@@ -14,7 +14,7 @@ const HeaderContainer = styled.div`
 const ShoppingCartContainer = styled.div`
 	position: absolute;
 	right: 1rem;
-	top: 0;
+	top: 1rem;
 `;
 
 const Title = styled.h1`

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import ProductHeader from '../components/ProductHeader';
 import Footer from '../components/Footer';
@@ -89,8 +90,35 @@ const Brown = styled.span`
 	margin-right: 0.25em;
 `;
 
+const QuantitySelector = styled.input`
+	width: 50px;
+	height: 30px;
+	font-size: 16px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+`;
+
+const BuyNowButton = styled.button`
+	background-color: #4b2f16;
+	color: white;
+	font-size: 18px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-left: 1rem;
+
+	&:hover {
+		background-color: #3b2412;
+	}
+`;
+
 const ProductPage = () => {
 	const [cartItems, setCartItems] = useState([]);
+	const [quantity, setQuantity] = useState(1);
+	const navigate = useNavigate();
 
 	const addToCart = () => {
 		const newCartItem = {
@@ -101,6 +129,11 @@ const ProductPage = () => {
 		};
 
 		setCartItems([...cartItems, newCartItem]);
+	};
+
+	const handleBuyNow = () => {
+		addToCart();
+		navigate('/checkout');
 	};
 
 	return (
@@ -123,7 +156,18 @@ const ProductPage = () => {
 							</ProductDescription>
 							<ProductPrice>$79.99</ProductPrice>
 
-							{/* Add size and quantity selection, Add to Cart button, etc. */}
+							<div>
+								<QuantitySelector
+									type="number"
+									min="1"
+									value={quantity}
+									onChange={(e) => setQuantity(e.target.value)}
+								/>
+								<AddToCartButton onClick={addToCart}>
+									Add to Cart
+								</AddToCartButton>
+								<BuyNowButton onClick={handleBuyNow}>Buy Now</BuyNowButton>
+							</div>
 						</ProductDetailsContainer>
 						<ProductImageContainer>
 							<ProductImage src={Lamp} alt="Product" />
