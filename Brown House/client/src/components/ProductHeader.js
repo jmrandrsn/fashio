@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ShoppingCart from './ShoppingCart';
 
 const HeaderContainer = styled.div`
 	display: flex;
@@ -8,6 +9,12 @@ const HeaderContainer = styled.div`
 	width: 100%;
 	height: 15vh; // You can adjust this value to your preference
 	padding: 1rem;
+`;
+
+const ShoppingCartContainer = styled.div`
+	position: absolute;
+	right: 1rem;
+	top: 0;
 `;
 
 const Title = styled.h1`
@@ -23,10 +30,13 @@ const Brown = styled.span`
 	margin-right: 0.25em;
 `;
 
-const ProductHeader = () => {
+const ProductHeader = ({ cartItems }) => {
 	return (
 		<HeaderContainer>
 			<Title>Only Lamp</Title>
+			<ShoppingCartContainer>
+				<ShoppingCart cartItems={cartItems} />
+			</ShoppingCartContainer>
 		</HeaderContainer>
 	);
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import ProductHeader from '../components/ProductHeader';
 import Footer from '../components/Footer';
@@ -43,11 +43,12 @@ const ProductImage = styled.img`
 `;
 
 const ProductName = styled.h1`
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
+	font-size: 40px;
 `;
 
 const ProductPrice = styled.p`
-	font-size: 1.5rem;
+	font-size: 2rem;
 	font-weight: bold;
 	margin-bottom: 1rem;
 `;
@@ -55,6 +56,8 @@ const ProductPrice = styled.p`
 const ProductDescription = styled.p`
 	line-height: 1.5;
 	margin-bottom: 1rem;
+	max-width: 250px;
+	font-size: 20px;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -66,17 +69,45 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const AddToCartButton = styled.button`
+	background-color: #613d1a;
+	color: white;
+	font-size: 18px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: #4b2f16;
+	}
+`;
+
 const Brown = styled.span`
 	color: #613d1a;
 	margin-right: 0.25em;
 `;
 
 const ProductPage = () => {
+	const [cartItems, setCartItems] = useState([]);
+
+	const addToCart = () => {
+		const newCartItem = {
+			id: 'lamp', // Replace with a unique identifier for the product
+			name: 'Brown House',
+			price: 79.99,
+			imgSrc: Lamp,
+		};
+
+		setCartItems([...cartItems, newCartItem]);
+	};
+
 	return (
 		<>
 			<GlobalStyle />
 			<Background>
-				<ProductHeader />
+				<ProductHeader cartItems={cartItems} />
 				<MainContent>
 					<ProductContainer>
 						<ProductDetailsContainer>
@@ -84,8 +115,11 @@ const ProductPage = () => {
 								<Brown>Brown</Brown>House
 							</ProductName>
 							<ProductDescription>
-								A standing lamp for the DIY / get it on your own type of person.
-								Looks nice in living rooms, bedrooms, and make-shift studios.
+								<p>
+									A standing lamp for the DIY / get it on your own type of
+									person. Looks nice in living rooms, bedrooms, and make-shift
+									studios.
+								</p>
 							</ProductDescription>
 							<ProductPrice>$79.99</ProductPrice>
 
