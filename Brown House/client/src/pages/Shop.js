@@ -7,6 +7,7 @@ import BlackSweater from '../media/blacksweater.jpeg';
 import Hoodie from '../media/hoodie.jpeg';
 import Jacket from '../media/jacket.jpeg';
 import Lamp from '../media/lamp.jpeg';
+import ProductData from '../utilities/products.json';
 
 const Background = styled.div`
 	background-color: #9d938c;
@@ -72,6 +73,20 @@ const ProductPrice = styled.p`
 	font-weight: bold;
 `;
 
+const imageMapping = {
+	Lamp: Lamp,
+	BlackSweater: BlackSweater,
+	Hoodie: Hoodie,
+	Jacket: Jacket,
+};
+
+function slugify(text) {
+	return text
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
 function Shop() {
 	return (
 		<>
@@ -80,39 +95,17 @@ function Shop() {
 				<Header centered />
 				<MainContent>
 					<ProductsContainer>
-						<Product>
-							<ProductLink to="/product-page">
-								<ProductImage src={BlackSweater} />
-							</ProductLink>
-
-							<ProductName>Black Sweater</ProductName>
-							<ProductPrice>$49.99</ProductPrice>
-						</Product>
-						<Product>
-							<ProductLink to="/product-page">
-								<ProductImage src={Hoodie} />
-							</ProductLink>
-
-							<ProductName>Dope Hoodie</ProductName>
-							<ProductPrice>$60</ProductPrice>
-						</Product>
-						<Product>
-							<ProductLink to="/product-page">
-								<ProductImage src={Jacket} />
-							</ProductLink>
-
-							<ProductName>Letterman</ProductName>
-							<ProductPrice>$150</ProductPrice>
-						</Product>
-						<Product>
-							<ProductLink to="/product-page">
-								<ProductImage src={Lamp} />
-							</ProductLink>
-
-							<ProductName>Only Lamp</ProductName>
-							<ProductPrice>$79.99</ProductPrice>
-						</Product>
-						{/* Add more products here */}
+						{ProductData.map((product) => (
+							<Product key={product.id}>
+								<ProductLink
+									to={`/product-page/${slugify(product.productName)}`}
+								>
+									<ProductImage src={imageMapping[product.imageSRC]} />
+								</ProductLink>
+								<ProductName>{product.productName}</ProductName>
+								<ProductPrice>{product.productPrice}</ProductPrice>
+							</Product>
+						))}
 					</ProductsContainer>
 				</MainContent>
 				<Footer />

@@ -1,0 +1,49 @@
+[
+    
+    {
+        "id": 1,
+        "productName": "Only Lamp",
+        "productDescription": "Rich",
+        "productPrice": "$79.99",
+        "productSpecs": [
+          {
+            "specName": "Dimensions",
+            "specValue": "58\" H x 10\" W x 10\""
+          },
+          {
+            "specName": "Weight",
+            "specValue": "8 lbs"
+          },
+          {
+            "specName": "Material",
+            "specValue": "Wood, Metal, Fabric"
+          },
+          {
+            "specName": "Color",
+            "specValue": "Dark Brown"
+          },
+          {
+            "specName": "Bulb Type",
+            "specValue": "LED"
+          },
+          {
+            "specName": "Wattage",
+            "specValue": "9 watts"
+          },
+          {
+            "specName": "Lumens",
+            "specValue": "800 lm"
+          },
+          {
+            "specName": "Switch Type",
+            "specValue": "Rotary"
+          },
+          {
+            "specName": "Power Source",
+            "specValue": "Plug-in"
+          }
+        ],
+        "imageSRC": "Lamp"
+      }
+  ]
+  

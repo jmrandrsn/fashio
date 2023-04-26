@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import ProductHeader from '../components/ProductHeader';
 import Footer from '../components/Footer';
@@ -41,9 +41,11 @@ const ProductImage = styled.img`
 	width: 100%;
 	object-fit: cover;
 	border-radius: 5px;
+	margin-bottom: 5rem;
+	max-height: 1000px;
 `;
 
-const ProductName = styled.h1`
+const BrandName = styled.h1`
 	margin-bottom: 0.5rem;
 	font-size: 40px;
 `;
@@ -163,6 +165,7 @@ const ProductPage = () => {
 	const [cartItems, setCartItems] = useState([]);
 	const [quantity, setQuantity] = useState(1);
 	const navigate = useNavigate();
+	const { productName } = useParams();
 
 	const addToCart = () => {
 		const newCartItem = {
@@ -198,9 +201,9 @@ const ProductPage = () => {
 				<MainContent>
 					<ProductContainer>
 						<ProductDetailsContainer>
-							<ProductName>
+							<BrandName>
 								<Brown>Brown</Brown>House
-							</ProductName>
+							</BrandName>
 							<ProductDescription>
 								<p>
 									A standing lamp for the DIY / get it on your own type of
@@ -213,7 +216,7 @@ const ProductPage = () => {
 							<ProductSpecs>
 								<div>
 									<SpecName>Dimensions:</SpecName>
-									<SpecValue>58" H x 10" W x 10" D</SpecValue>
+									<SpecValue>58" H x 10" W x 10" </SpecValue>
 								</div>
 								<div>
 									<SpecName>Weight:</SpecName>
