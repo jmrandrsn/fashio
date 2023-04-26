@@ -47,7 +47,7 @@
       },
       {
         "id": 2,
-        "productName": "Dope Sweater",
+        "productName": "The Dope Sweater",
         "productDescription": "I dunno man it's a sweater. It looks pretty cool.",
         "productPrice": "$49.99",
         "productSpecs": [
@@ -64,7 +64,7 @@
       },
       {
         "id": 3,
-        "productName": "CryptoBot",
+        "productName": "The Crypto Bot",
         "productDescription": "An advanced crypto trading bot designed for both beginners and experienced traders. Optimize your trading strategy with automated trading capabilities.",
         "productPrice": "$199.99",
         "productSpecs": [

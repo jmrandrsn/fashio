@@ -25,11 +25,6 @@ const Title = styled.h1`
 	margin: 0;
 `;
 
-const Brown = styled.span`
-	color: #613d1a;
-	margin-right: 0.25em;
-`;
-
 const ProductHeader = ({ cartItems, product }) => {
 	return (
 		<HeaderContainer>

@@ -29,6 +29,8 @@ const ProductContainer = styled.div`
 
 const ProductImageContainer = styled.div`
 	flex: 1;
+
+	width: 40rem;
 `;
 
 const ProductDetailsContainer = styled.div`
@@ -98,15 +100,13 @@ const QuantitySelector = styled.div`
 	height: 50px;
 	font-size: 16px;
 	text-align: center;
-	border: 1px solid #ccc;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
 `;
 
 const QuantityButton = styled.button`
-	background-color: #613d1a;
-	color: white;
+	color: #613d1a;
 	font-size: 18px;
 	padding: 5px;
 	border: none;
@@ -116,6 +116,7 @@ const QuantityButton = styled.button`
 
 	&:hover {
 		background-color: #4b2f16;
+		color: white;
 	}
 `;
 
