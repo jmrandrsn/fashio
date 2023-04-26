@@ -30,10 +30,10 @@ const Brown = styled.span`
 	margin-right: 0.25em;
 `;
 
-const ProductHeader = ({ cartItems }) => {
+const ProductHeader = ({ cartItems, product }) => {
 	return (
 		<HeaderContainer>
-			<Title>Only Lamp</Title>
+			<Title>{product.productName}</Title>
 			<ShoppingCartContainer>
 				<ShoppingCart cartItems={cartItems} />
 			</ShoppingCartContainer>

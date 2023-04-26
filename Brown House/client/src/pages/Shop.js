@@ -3,11 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import BlackSweater from '../media/blacksweater.jpeg';
-import Hoodie from '../media/hoodie.jpeg';
-import Jacket from '../media/jacket.jpeg';
-import Lamp from '../media/lamp.jpeg';
 import ProductData from '../utilities/products.json';
+import { imageMapping } from '../utilities/imageMapping';
 
 const Background = styled.div`
 	background-color: #9d938c;
@@ -73,13 +70,6 @@ const ProductPrice = styled.p`
 	font-weight: bold;
 `;
 
-const imageMapping = {
-	Lamp: Lamp,
-	BlackSweater: BlackSweater,
-	Hoodie: Hoodie,
-	Jacket: Jacket,
-};
-
 function slugify(text) {
 	return text
 		.toLowerCase()
@@ -97,9 +87,7 @@ function Shop() {
 					<ProductsContainer>
 						{ProductData.map((product) => (
 							<Product key={product.id}>
-								<ProductLink
-									to={`/product-page/${slugify(product.productName)}`}
-								>
+								<ProductLink to={`/shop/${slugify(product.productName)}`}>
 									<ProductImage src={imageMapping[product.imageSRC]} />
 								</ProductLink>
 								<ProductName>{product.productName}</ProductName>

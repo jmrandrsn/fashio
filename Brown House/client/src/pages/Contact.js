@@ -73,8 +73,6 @@ const Button = styled.button`
 	}
 `;
 
-const NewsContainer = styled.div``;
-
 function Contact() {
 	const [formData, setFormData] = useState({
 		name: '',

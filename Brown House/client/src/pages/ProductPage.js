@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import ProductHeader from '../components/ProductHeader';
 import Footer from '../components/Footer';
-import Hoodie from '../media/hoodie.jpeg';
-import Lamp from '../media/lamp.jpeg';
+import findProductBySlug from '../utilities/findProductBySlug';
+import { imageMapping } from '../utilities/imageMapping';
 
 const Background = styled.div`
 	background-color: #f5f5f5;
@@ -127,7 +127,7 @@ const QuantityValue = styled.span`
 `;
 
 const BuyNowButton = styled.button`
-	background-color: #4b2f16;
+	background-color: #613d1a;
 	color: white;
 	font-size: 18px;
 	padding: 10px 20px;
@@ -161,18 +161,19 @@ const SpecValue = styled.span`
 	margin-left: 0.5rem;
 `;
 
-const ProductPage = () => {
+const ProductPage = (props) => {
 	const [cartItems, setCartItems] = useState([]);
 	const [quantity, setQuantity] = useState(1);
 	const navigate = useNavigate();
 	const { productName } = useParams();
 
+	const product = findProductBySlug(productName);
 	const addToCart = () => {
 		const newCartItem = {
-			id: 'lamp', // Replace with a unique identifier for the product
-			name: 'Brown House',
-			price: 79.99,
-			imgSrc: Lamp,
+			id: product.id,
+			name: product.productName,
+			price: parseFloat(product.productPrice.slice(1)),
+			imgSrc: product.imageSRC,
 		};
 
 		setCartItems([...cartItems, newCartItem]);
@@ -197,7 +198,7 @@ const ProductPage = () => {
 		<>
 			<GlobalStyle />
 			<Background>
-				<ProductHeader cartItems={cartItems} />
+				<ProductHeader product={product} cartItems={cartItems} />
 				<MainContent>
 					<ProductContainer>
 						<ProductDetailsContainer>
@@ -205,55 +206,23 @@ const ProductPage = () => {
 								<Brown>Brown</Brown>House
 							</BrandName>
 							<ProductDescription>
-								<p>
-									A standing lamp for the DIY / get it on your own type of
-									person. Looks nice in living rooms, bedrooms, and make-shift
-									studios.
-								</p>
+								{product.productDescription}
 							</ProductDescription>
-							<ProductPrice>$79.99</ProductPrice>
-
+							<ProductPrice>{product.productPrice}</ProductPrice>
 							<ProductSpecs>
-								<div>
-									<SpecName>Dimensions:</SpecName>
-									<SpecValue>58" H x 10" W x 10" </SpecValue>
-								</div>
-								<div>
-									<SpecName>Weight:</SpecName>
-									<SpecValue>8 lbs</SpecValue>
-								</div>
-								<div>
-									<SpecName>Material:</SpecName>
-									<SpecValue>Wood, Metal, Fabric</SpecValue>
-								</div>
-								<div>
-									<SpecName>Color:</SpecName>
-									<SpecValue>Dark Brown</SpecValue>
-								</div>
-								<div>
-									<SpecName>Bulb Type:</SpecName>
-									<SpecValue>LED</SpecValue>
-								</div>
-								<div>
-									<SpecName>Wattage:</SpecName>
-									<SpecValue>9 watts</SpecValue>
-								</div>
-								<div>
-									<SpecName>Lumens:</SpecName>
-									<SpecValue>800 lm</SpecValue>
-								</div>
-								<div>
-									<SpecName>Switch Type:</SpecName>
-									<SpecValue>Rotary</SpecValue>
-								</div>
-								<div>
-									<SpecName>Power Source:</SpecName>
-									<SpecValue>Plug-in</SpecValue>
-								</div>
+								{product.productSpecs.map((spec) => (
+									<div key={spec.specName}>
+										<SpecName>{spec.specName}:</SpecName>
+										<SpecValue>{spec.specValue}</SpecValue>
+									</div>
+								))}
 							</ProductSpecs>
 						</ProductDetailsContainer>
 						<ProductImageContainer>
-							<ProductImage src={Lamp} alt="Product" />
+							<ProductImage
+								src={imageMapping[product.imageSRC]}
+								alt="Product"
+							/>
 							<CheckoutContainer>
 								<AddToCartButton onClick={addToCart}>
 									Add to Cart

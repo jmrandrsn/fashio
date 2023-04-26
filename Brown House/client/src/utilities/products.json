@@ -3,8 +3,8 @@
     {
         "id": 1,
         "productName": "Only Lamp",
-        "productDescription": "Rich",
-        "productPrice": "$79.99",
+        "productDescription": "A standing lamp for the DIY / get it on your own type of person. Looks nice in living rooms, bedrooms, and make-shift studios.",
+        "productPrice": "$79.99", 
         "productSpecs": [
           {
             "specName": "Dimensions",
@@ -44,6 +44,130 @@
           }
         ],
         "imageSRC": "Lamp"
-      }
+      },
+      {
+        "id": 2,
+        "productName": "Dope Sweater",
+        "productDescription": "I dunno man it's a sweater. It looks pretty cool.",
+        "productPrice": "$49.99",
+        "productSpecs": [
+          {
+            "specName": "Material",
+            "specValue": "That shit"
+          },
+          {
+            "specName": "Colors",
+            "specValue": "Pink, Black, Red"
+          }
+        ],
+        "imageSRC": "Hoodie"
+      },
+      {
+        "id": 3,
+        "productName": "CryptoBot",
+        "productDescription": "An advanced crypto trading bot designed for both beginners and experienced traders. Optimize your trading strategy with automated trading capabilities.",
+        "productPrice": "$199.99",
+        "productSpecs": [
+          {
+            "specName": "Supported Exchanges",
+            "specValue": "Binance, Coinbase, Kraken, Bitfinex"
+          },
+          {
+            "specName": "Strategies",
+            "specValue": "Scalping, Arbitrage, Swing Trading"
+          },
+          {
+            "specName": "API",
+            "specValue": "REST, WebSocket"
+          },
+          {
+            "specName": "Operating System",
+            "specValue": "Windows, macOS, Linux"
+          }
+        ],
+        "imageSRC": "CryptoBot"
+      },
+      {
+        "id": 4,
+        "productName": "Good Smell Candle",
+        "productDescription": "A high-quality, hand-poured soy wax candle infused with essential oils to create a relaxing and soothing atmosphere in any room.",
+        "productPrice": "$44.99",
+        "productSpecs": [
+          {
+            "specName": "Material",
+            "specValue": "Soy Wax, Cotton Wick"
+          },
+          {
+            "specName": "Burn Time",
+            "specValue": "Up to 60 hours"
+          },
+          {
+            "specName": "Fragrance",
+            "specValue": "Lavender, Vanilla, Sandalwood"
+          },
+          {
+            "specName": "Weight",
+            "specValue": "8 oz"
+          }
+        ],
+        "imageSRC": "Candle"
+      },
+
+      {
+        "id": 5,
+        "productName": "SecureTouch  Ksafe",
+        "productDescription": "A high-tech, secure safe that provides advanced fingerprint authentication to protect your valuable belongings.",
+        "productPrice": "$129.99",
+        "productSpecs": [
+          {
+            "specName": "Dimensions",
+            "specValue": "8\" H x 12\" W x 10\" D"
+          },
+          {
+            "specName": "Weight",
+            "specValue": "15 lbs"
+          },
+          {
+            "specName": "Material",
+            "specValue": "Steel, Alloy"
+          },
+          {
+            "specName": "Fingerprint Capacity",
+            "specValue": "20 fingerprints"
+          },
+          {
+            "specName": "Power Source",
+            "specValue": "4 AA batteries"
+          }
+        ],
+        "imageSRC": "Ksafe"
+      },
+      {
+        "id": 6,
+        "productName": "The Totem",
+        "productDescription": "A weighted rock totem inspired by the movie Inception, designed to help you determine if you're in a dream or reality.",
+        "productPrice": "$29.99",
+        "productSpecs": [
+          {
+            "specName": "Dimensions",
+            "specValue": "2\" H x 1\" W x 1\" D"
+          },
+          {
+            "specName": "Weight",
+            "specValue": "3 oz"
+          },
+          {
+            "specName": "Material",
+            "specValue": "Solid Metal Alloy"
+          },
+          {
+            "specName": "Color",
+            "specValue": "Black, Grey, Earth"
+          }
+        ],
+        "imageSRC": "Totem"
+    }
+      
+      
   ]
   

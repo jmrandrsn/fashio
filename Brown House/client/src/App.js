@@ -24,7 +24,7 @@ function App() {
 				<Route path="/shop" element={<Shop />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/random" element={<Random />} />
-				<Route path="/product-page/:productName" element={<ProductPage />} />
+				<Route path="/shop/:productName" element={<ProductPage />} />
 				<Route path="/spring-summer-2023" element={<Catalog />} />
 				<Route path="/checkout" element={<CheckoutPage />} />
 				<Route path="/spring-summer-2023-lookbook" element={<LookBook />} />
