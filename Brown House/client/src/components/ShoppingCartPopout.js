@@ -67,6 +67,11 @@ const SummaryLine = styled.div`
 	width: 100%;
 `;
 
+const Brown = styled.span`
+	color: #613d1a;
+	margin-right: 0.25em;
+`;
+
 const ShoppingCartPopout = ({ cartItems, togglePopout }) => {
 	return (
 		<>
@@ -74,7 +79,10 @@ const ShoppingCartPopout = ({ cartItems, togglePopout }) => {
 				<PopoutContent>
 					<Row>
 						<Column>
-							<SectionTitle>Shopping Cart</SectionTitle>
+							<SectionTitle>
+								{' '}
+								<Brown>Shopping</Brown> Cart
+							</SectionTitle>
 							<LineSeparator />
 							{cartItems.length === 0 ? (
 								<SummaryLine>

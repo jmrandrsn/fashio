@@ -34,6 +34,7 @@ const Form = styled.form`
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 	height: 60rem;
 	width: 75rem;
+	opacity: 0.97;
 `;
 
 const Input = styled.input`
@@ -46,7 +47,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-	background-color: #9d938c;
+	background-color: #613d1a;
 	color: #fff;
 	padding: 10px 20px;
 	border: none;
@@ -55,7 +56,7 @@ const Button = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		background-color: #82796f;
+		background-color: #3b2412;
 	}
 `;
 
@@ -84,6 +85,11 @@ const SummaryLine = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+`;
+
+const Brown = styled.span`
+	color: #613d1a;
+	margin-right: 0.25em;
 `;
 
 const CartItem = ({ item }) => (
@@ -149,7 +155,9 @@ function CheckoutPage({ cartItems }) {
 					<Form onSubmit={handleSubmit}>
 						<Row>
 							<Column>
-								<SectionTitle>Product Summary</SectionTitle>
+								<SectionTitle>
+									<Brown>Product</Brown>Summary
+								</SectionTitle>
 								<LineSeparator />
 								{cartItems.length === 0 ? (
 									<SummaryLine>
@@ -192,14 +200,17 @@ function CheckoutPage({ cartItems }) {
 									<span>${total.toFixed(2)}</span>
 								</SummaryLine>
 								<Button
-									style={{ marginTop: `33.5rem` }}
+									style={{ marginTop: `33rem` }}
 									onClick={handleKeepShopping}
 								>
 									Keep Shopping
 								</Button>
 							</Column>
 							<Column>
-								<SectionTitle>Contact Information</SectionTitle>
+								<SectionTitle>
+									{' '}
+									<Brown>Contact</Brown>Information
+								</SectionTitle>
 								<Input
 									type="text"
 									name="phoneNumber"
@@ -215,7 +226,9 @@ function CheckoutPage({ cartItems }) {
 									onChange={handleChange}
 									required
 								/>
-								<SectionTitle>Shipping Address</SectionTitle>
+								<SectionTitle>
+									<Brown>Shipping</Brown>Address
+								</SectionTitle>
 								<Input
 									type="text"
 									name="firstName"
@@ -271,7 +284,9 @@ function CheckoutPage({ cartItems }) {
 									onChange={handleChange}
 									required
 								/>
-								<SectionTitle>Payment Details</SectionTitle>
+								<SectionTitle>
+									<Brown>Payment</Brown>Details
+								</SectionTitle>
 
 								<Input
 									type="text"

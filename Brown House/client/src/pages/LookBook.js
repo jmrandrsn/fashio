@@ -48,6 +48,11 @@ const SectionTitle = styled.h2`
 	margin-bottom: 1rem;
 `;
 
+const Brown = styled.span`
+	color: #613d1a;
+	margin-right: 0.25em;
+`;
+
 function LookBook() {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -74,7 +79,9 @@ function LookBook() {
 				<Header centered />
 				<Construction>
 					<Form onSubmit={handleSubmit}>
-						<SectionTitle>Under Construction</SectionTitle>
+						<SectionTitle>
+							<Brown>Under</Brown>Construction
+						</SectionTitle>
 					</Form>
 				</Construction>
 			</Background>
