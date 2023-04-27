@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Navigate } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -105,6 +104,12 @@ function CheckoutPage({ cartItems }) {
 		zip: '',
 	});
 
+	const navigate = useNavigate();
+
+	const handleKeepShopping = () => {
+		navigate('/shop');
+	};
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		// Send the form data to your server or external API here
@@ -188,7 +193,7 @@ function CheckoutPage({ cartItems }) {
 								</SummaryLine>
 								<Button
 									style={{ marginTop: `33.5rem` }}
-									onClick={useNavigate('/shop')}
+									onClick={handleKeepShopping}
 								>
 									Keep Shopping
 								</Button>
