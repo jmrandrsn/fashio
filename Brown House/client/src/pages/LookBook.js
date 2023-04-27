@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,7 +10,7 @@ const Background = styled.div`
 	min-height: 100vh;
 `;
 
-const Construction = styled.h1`
+const Construction = styled.div`
 	background-color: #9d938c;
 	min-height: 50vh;
 	display: flex;
@@ -22,23 +22,63 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Alegreya', serif;
 	overflow: hidden;
-	margin: 0;
-    padding: 0;
-
   }
 `;
 
-const NewsContainer = styled.div``;
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+	align-items: space-evenly;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	height: 60rem;
+	width: 75rem;
+`;
+
+const SectionTitle = styled.h2`
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+`;
 
 function LookBook() {
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		message: '',
+	});
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		// send the form data to your server or external API here
+		console.log(formData);
+		alert('Thank you for submitting the form!');
+		setFormData({ name: '', email: '', message: '' });
+	};
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	};
 	return (
 		<>
 			<GlobalStyle />
 			<Background>
 				<Header centered />
-				<Construction> Look Book Under Construction Mother Fucker</Construction>
-				<Footer />
+				<Construction>
+					<Form onSubmit={handleSubmit}>
+						<SectionTitle>Under Construction</SectionTitle>
+					</Form>
+				</Construction>
 			</Background>
+			<Footer />
 		</>
 	);
 }

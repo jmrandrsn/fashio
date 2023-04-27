@@ -25,14 +25,14 @@ const Title = styled.h1`
 	margin: 0;
 `;
 
-const ProductHeader = ({ cartItems, product, onCartIconClick, showPopout }) => {
+const ProductHeader = ({ cartItems, product, togglePopout, showPopout }) => {
 	return (
 		<HeaderContainer>
 			<Title>{product.productName}</Title>
 			<ShoppingCartContainer>
 				<ShoppingCart
 					cartItems={cartItems}
-					onCartIconClick={onCartIconClick}
+					togglePopout={togglePopout}
 					showPopout={showPopout}
 				/>
 			</ShoppingCartContainer>

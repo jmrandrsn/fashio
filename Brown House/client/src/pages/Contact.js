@@ -10,7 +10,7 @@ const Background = styled.div`
 	min-height: 100vh;
 `;
 
-const Construction = styled.h1`
+const Construction = styled.div`
 	background-color: #9d938c;
 	min-height: 50vh;
 	display: flex;
@@ -34,11 +34,13 @@ const Container = styled.div`
 const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: space-evenly;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	height: 60rem;
+	width: 75rem;
 `;
 
 const Input = styled.input`
@@ -73,6 +75,11 @@ const Button = styled.button`
 	}
 `;
 
+const SectionTitle = styled.h2`
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+`;
+
 function Contact() {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -99,6 +106,7 @@ function Contact() {
 				<Header centered />
 				<Construction>
 					<Form onSubmit={handleSubmit}>
+						<SectionTitle>Contact Us!</SectionTitle>
 						<Input
 							type="text"
 							name="name"

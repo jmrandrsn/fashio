@@ -252,7 +252,7 @@ const ProductPage = ({ cartItems, setCartItems }) => {
 				<ProductHeader
 					product={product}
 					cartItems={cartItems}
-					onCartIconClick={togglePopout}
+					togglePopout={togglePopout}
 					showPopout={showPopout}
 				/>
 

@@ -26,24 +26,21 @@ const CartCounter = styled.span`
 
 // Shopping Cart should be clicked and small popout with cart items should be available.
 //Seperate from the checkout page
-const ShoppingCart = ({ cartItems, onCartIconClick, showPopout }) => {
+const ShoppingCart = ({ cartItems, togglePopout, showPopout }) => {
 	const getTotalItems = (items) => {
 		return items.reduce((total, item) => total + item.quantity, 0);
 	};
 
 	return (
 		<>
-			<CartIcon onClick={showPopout}>
+			<CartIcon onClick={togglePopout}>
 				<FaShoppingCart />
 				{cartItems.length > 0 && (
 					<CartCounter>{getTotalItems(cartItems)}</CartCounter>
 				)}
 			</CartIcon>
 			{showPopout && (
-				<ShoppingCartPopout
-					cartItems={cartItems}
-					togglePopout={onCartIconClick}
-				/>
+				<ShoppingCartPopout cartItems={cartItems} togglePopout={togglePopout} />
 			)}
 		</>
 	);

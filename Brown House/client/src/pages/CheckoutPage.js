@@ -108,7 +108,7 @@ function CheckoutPage({ cartItems }) {
 		event.preventDefault();
 		// Send the form data to your server or external API here
 		console.log(formData);
-		alert('Thank you for submitting the form!');
+		alert('Purchase Confirmed');
 		setFormData({ name: '', email: '', address: '', city: '', zip: '' });
 	};
 
@@ -145,20 +145,26 @@ function CheckoutPage({ cartItems }) {
 							<Column>
 								<SectionTitle>Product Summary</SectionTitle>
 								<LineSeparator />
-								{cartItems.map((item) =>
-									Array.from({ length: item.quantity }, (_, index) => (
-										<SummaryLine key={`${item.id}-${index}`}>
-											<img
-												src={item.imgSrc}
-												alt={item.name}
-												width="50"
-												height="50"
-											/>
-											<span>{item.name}</span>
-											<span>Quantity: 1</span>
-											<span>Price: ${item.price.toFixed(2)}</span>
-										</SummaryLine>
-									)),
+								{cartItems.length === 0 ? (
+									<SummaryLine>
+										<h2> No items in shopping cart </h2>
+									</SummaryLine>
+								) : (
+									cartItems.map((item) =>
+										Array.from({ length: item.quantity }, (_, index) => (
+											<SummaryLine key={`${item.id}-${index}`}>
+												<img
+													src={item.imgSrc}
+													alt={item.name}
+													width="50"
+													height="50"
+												/>
+												<span>{item.name}</span>
+												<span>Quantity: 1</span>
+												<span>Price: ${item.price.toFixed(2)}</span>
+											</SummaryLine>
+										)),
+									)
 								)}
 								<LineSeparator />
 								<SummaryLine>
@@ -179,6 +185,7 @@ function CheckoutPage({ cartItems }) {
 									<span>Total:</span>
 									<span>${total.toFixed(2)}</span>
 								</SummaryLine>
+								<Button to="/product-page/:product-id">Keep Shopping</Button>
 							</Column>
 							<Column>
 								<SectionTitle>Contact Information</SectionTitle>
