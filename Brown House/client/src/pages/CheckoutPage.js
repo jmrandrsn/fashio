@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -185,7 +186,12 @@ function CheckoutPage({ cartItems }) {
 									<span>Total:</span>
 									<span>${total.toFixed(2)}</span>
 								</SummaryLine>
-								<Button to="/product-page/:product-id">Keep Shopping</Button>
+								<Button
+									style={{ marginTop: `33.5rem` }}
+									onClick={useNavigate('/shop')}
+								>
+									Keep Shopping
+								</Button>
 							</Column>
 							<Column>
 								<SectionTitle>Contact Information</SectionTitle>
