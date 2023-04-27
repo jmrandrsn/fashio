@@ -70,6 +70,12 @@ const ProductPrice = styled.p`
 	font-weight: bold;
 `;
 
+const ShoppingCartContainer = styled.div`
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+`;
+
 function slugify(text) {
 	return text
 		.toLowerCase()
@@ -83,11 +89,14 @@ function Shop() {
 			<GlobalStyle />
 			<Background>
 				<Header centered />
+
 				<MainContent>
 					<ProductsContainer>
 						{ProductData.map((product) => (
 							<Product key={product.id}>
-								<ProductLink to={`/shop/${slugify(product.productName)}`}>
+								<ProductLink
+									to={`/product-page/${slugify(product.productName)}`}
+								>
 									<ProductImage src={imageMapping[product.imageSRC]} />
 								</ProductLink>
 								<ProductName>{product.productName}</ProductName>

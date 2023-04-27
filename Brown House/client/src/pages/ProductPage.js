@@ -5,6 +5,7 @@ import ProductHeader from '../components/ProductHeader';
 import Footer from '../components/Footer';
 import findProductBySlug from '../utilities/findProductBySlug';
 import { imageMapping } from '../utilities/imageMapping';
+import { Link } from 'react-router-dom';
 
 const Background = styled.div`
 	background-color: #f5f5f5;
@@ -162,26 +163,69 @@ const SpecValue = styled.span`
 	margin-left: 0.5rem;
 `;
 
-const ProductPage = (props) => {
-	const [cartItems, setCartItems] = useState([]);
+const ShoppingCartPopout = styled.div`
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const PopoutContent = styled.div`
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	width: 80%;
+`;
+
+const ProductPage = ({ cartItems, setCartItems }) => {
 	const [quantity, setQuantity] = useState(1);
 	const navigate = useNavigate();
 	const { productName } = useParams();
 
 	const product = findProductBySlug(productName);
 	const addToCart = () => {
+		if (!product) {
+			console.error('Product not found');
+			return;
+		}
+
 		const newCartItem = {
 			id: product.id,
 			name: product.productName,
 			price: parseFloat(product.productPrice.slice(1)),
-			imgSrc: product.imageSRC,
+			imgSrc: imageMapping[product.imageSRC],
+			quantity: quantity || 0,
 		};
 
-		setCartItems([...cartItems, newCartItem]);
+		const existingCartItemIndex = cartItems.findIndex(
+			(item) => item.id === product.id,
+		);
+
+		if (existingCartItemIndex !== -1) {
+			const updatedCartItems = [...cartItems];
+			updatedCartItems[existingCartItemIndex].quantity += quantity;
+			setCartItems(updatedCartItems);
+		} else {
+			setCartItems([...cartItems, newCartItem]);
+		}
 	};
 
 	const handleBuyNow = () => {
-		addToCart();
+		const existingCartItemIndex = cartItems.findIndex(
+			(item) => item.id === product.id,
+		);
+
+		if (existingCartItemIndex === -1) {
+			addToCart();
+		}
+
 		navigate('/checkout');
 	};
 
@@ -195,11 +239,23 @@ const ProductPage = (props) => {
 		}
 	};
 
+	const [showPopout, setShowPopout] = useState(false);
+
+	const togglePopout = () => {
+		setShowPopout(!showPopout);
+	};
+
 	return (
 		<>
 			<GlobalStyle />
 			<Background>
-				<ProductHeader product={product} cartItems={cartItems} />
+				<ProductHeader
+					product={product}
+					cartItems={cartItems}
+					onCartIconClick={togglePopout}
+					showPopout={showPopout}
+				/>
+
 				<MainContent>
 					<ProductContainer>
 						<ProductDetailsContainer>

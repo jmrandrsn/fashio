@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ShoppingCartPopout from './ShoppingCartPopout';
 import { FaShoppingCart } from 'react-icons/fa';
 
 const CartIcon = styled.div`
@@ -25,12 +26,26 @@ const CartCounter = styled.span`
 
 // Shopping Cart should be clicked and small popout with cart items should be available.
 //Seperate from the checkout page
-const ShoppingCart = ({ cartItems }) => {
+const ShoppingCart = ({ cartItems, onCartIconClick, showPopout }) => {
+	const getTotalItems = (items) => {
+		return items.reduce((total, item) => total + item.quantity, 0);
+	};
+
 	return (
-		<CartIcon>
-			<FaShoppingCart />
-			{cartItems.length > 0 && <CartCounter>{cartItems.length}</CartCounter>}
-		</CartIcon>
+		<>
+			<CartIcon onClick={showPopout}>
+				<FaShoppingCart />
+				{cartItems.length > 0 && (
+					<CartCounter>{getTotalItems(cartItems)}</CartCounter>
+				)}
+			</CartIcon>
+			{showPopout && (
+				<ShoppingCartPopout
+					cartItems={cartItems}
+					togglePopout={onCartIconClick}
+				/>
+			)}
+		</>
 	);
 };
 

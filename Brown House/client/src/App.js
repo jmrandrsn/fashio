@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -15,6 +15,8 @@ import ProductPage from './pages/ProductPage';
 import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
+	const [cartItems, setCartItems] = useState([]);
+
 	return (
 		<Router>
 			<Routes>
@@ -24,9 +26,17 @@ function App() {
 				<Route path="/shop" element={<Shop />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/random" element={<Random />} />
-				<Route path="/shop/:productName" element={<ProductPage />} />
+				<Route
+					path="/product-page/:productName"
+					element={
+						<ProductPage cartItems={cartItems} setCartItems={setCartItems} />
+					}
+				/>
 				<Route path="/spring-summer-2023" element={<Catalog />} />
-				<Route path="/checkout" element={<CheckoutPage />} />
+				<Route
+					path="/checkout"
+					element={<CheckoutPage cartItems={cartItems} />}
+				/>
 				<Route path="/spring-summer-2023-lookbook" element={<LookBook />} />
 			</Routes>
 		</Router>

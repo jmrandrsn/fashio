@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import ShoppingCart from './ShoppingCart';
 
 const HeaderContainer = styled.div`
 	display: flex;
@@ -18,6 +19,12 @@ const Title = styled.h1`
 	margin: 0;
 `;
 
+const ShoppingCartContainer = styled.div`
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+`;
+
 const Brown = styled.span`
 	color: #613d1a;
 	margin-right: 0.25em;
@@ -29,6 +36,9 @@ const Header = ({ centered }) => {
 			<Title>
 				<Brown>Brown</Brown> House
 			</Title>
+			{/* <ShoppingCartContainer>
+				<ShoppingCart cartItems />
+			</ShoppingCartContainer> */}
 		</HeaderContainer>
 	);
 };
